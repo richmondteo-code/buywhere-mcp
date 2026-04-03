@@ -1,12 +1,12 @@
 # buywhere-mcp
 
-MCP server for the [BuyWhere](https://buywhere.io) product catalog. Lets Claude Desktop, Cursor, Windsurf, and other MCP-compatible agents search and retrieve products without writing any HTTP code.
+MCP server for the [BuyWhere](https://buywhere.ai) product catalog. Lets Claude Desktop, Cursor, Windsurf, and other MCP-compatible agents search and retrieve products without writing any HTTP code.
 
 ## Setup
 
 ### 1. Get your API key
 
-Sign up at [buywhere.io/dashboard](https://buywhere.io/dashboard) and copy your API key.
+Sign up at [buywhere.ai/developers](https://buywhere.ai/dashboard) and copy your API key.
 
 ### 2. Configure your client
 
@@ -18,8 +18,8 @@ Open `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) o
 {
   "mcpServers": {
     "buywhere": {
-      "command": "npx",
-      "args": ["-y", "buywhere-mcp"],
+      "command": "python",
+      "args": ["mcp_server.py"],
       "env": {
         "BUYWHERE_API_KEY": "your_api_key_here"
       }
@@ -36,8 +36,8 @@ Open **Settings → MCP** and add a new server, or edit `~/.cursor/mcp.json`:
 {
   "mcpServers": {
     "buywhere": {
-      "command": "npx",
-      "args": ["-y", "buywhere-mcp"],
+      "command": "python",
+      "args": ["mcp_server.py"],
       "env": {
         "BUYWHERE_API_KEY": "your_api_key_here"
       }
@@ -54,8 +54,8 @@ Edit `~/.codeium/windsurf/mcp_config.json`:
 {
   "mcpServers": {
     "buywhere": {
-      "command": "npx",
-      "args": ["-y", "buywhere-mcp"],
+      "command": "python",
+      "args": ["mcp_server.py"],
       "env": {
         "BUYWHERE_API_KEY": "your_api_key_here"
       }
@@ -142,7 +142,7 @@ List available product categories. Use this to discover what categories exist be
 | Variable           | Required | Description |
 |--------------------|----------|-------------|
 | `BUYWHERE_API_KEY` | yes      | Your BuyWhere API key |
-| `BUYWHERE_API_URL` | no       | Override API base URL (default: `https://api.buywhere.io`) |
+| `BUYWHERE_API_URL` | no       | Override API base URL (default: `https://api.buywhere.ai`) |
 
 ## Sample agent conversation
 
@@ -168,7 +168,7 @@ Best value: Royal Kludge RK61 at SGD 65
 
 [Calls get_affiliate_link with product_id="prod_def456"]
 
-Here's your purchase link: https://api.buywhere.io/r/prod_def456
+Here's your purchase link: https://api.buywhere.ai/r/prod_def456
 ```
 
 ## Development
@@ -176,5 +176,5 @@ Here's your purchase link: https://api.buywhere.io/r/prod_def456
 ```bash
 npm install
 npm run build
-BUYWHERE_API_KEY=your_key node dist/index.js
+BUYWHERE_API_KEY=your_key python mcp_server.py
 ```
