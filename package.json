@@ -39,5 +39,6 @@
   },
   "engines": {
     "node": ">=18"
-  }
+  },
+  "mcpName": "io.github.BuyWhere/mcp-server"
 }
