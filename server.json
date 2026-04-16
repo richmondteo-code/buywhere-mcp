@@ -1,29 +1,11 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.BuyWhere/mcp-server",
+  "name": "io.github.richmondteo-code/buywhere-mcp",
   "description": "Agent-native product catalog API for Southeast Asia \u2014 search, compare prices, find deals.",
   "repository": {
-    "url": "https://github.com/BuyWhere/buywhere-mcp",
+    "url": "https://github.com/richmondteo-code/buywhere-mcp",
     "source": "github"
   },
   "version": "1.0.0",
-  "packages": [
-    {
-      "registryType": "npm",
-      "identifier": "buywhere-mcp",
-      "version": "0.1.0",
-      "transport": {
-        "type": "stdio"
-      },
-      "environmentVariables": [
-        {
-          "name": "BUYWHERE_API_KEY",
-          "description": "BuyWhere API key from https://buywhere.ai/developers",
-          "isRequired": false,
-          "format": "string",
-          "isSecret": true
-        }
-      ]
-    }
-  ]
+  "packages": []
 }
